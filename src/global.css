@@ -19,10 +19,6 @@ time, mark, audio, video {
     background:transparent;
 }
 
-body {
-    line-height:1;
-}
-
 article,aside,details,figcaption,figure,
 footer,header,hgroup,menu,nav,section {
     display:block;
@@ -91,4 +87,22 @@ hr {
 
 input, select {
     vertical-align:middle;
+}
+
+
+body {
+    line-height:1;
+    --navbarHeight: 48px;
+    /* transition: background-color 0.3s; */
+}
+
+body[scrollable='false'] {
+    height: 100%;
+    overflow: hidden;
+}
+
+
+
+html {
+    scrollbar-color: #6969dd #e0e0e0;
 }

@@ -1,12 +1,18 @@
 import styled from "styled-components";
 
+
+interface GridProps {
+  scrollable: boolean,
+}
+
+
 const Grid = styled.div`
-  /* width: fit-content; */
+  width: fit-content;
   display: grid;
-  gap: 24px;
+  gap: 16px;
   transition: background-color 0.3s;
-  
-  /* grid-template-columns: 1fr; */
+  /* height: 100%; */
+  grid-template-columns: 1fr;
 
 
   @media (min-width: 576px) {
@@ -20,10 +26,14 @@ const Grid = styled.div`
 
 const GridWrapper = styled.div`
   width: 100%;
+  height: ${(props: GridProps) => props.scrollable ? 'unset' : '100%' };
+  overflow: ${(props: GridProps) => props.scrollable ? 'unset' : 'hidden' };
+  transition: background-color 0.3s;
+  /* height: 100%; */
   /* height: fit-content; */
   display: flex;
   justify-content: center;
-  padding: 16px;
+  padding: 24px 12px;
 `
 
 export {Grid, GridWrapper}

@@ -1,12 +1,14 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 
 interface AppState {
   theme: string,
+  scrollable: boolean,
 }
 
 const initialState: AppState = {
   theme: 'dark',
+  scrollable: true
 }
 
 const AppSlice = createSlice({
@@ -22,11 +24,15 @@ const AppSlice = createSlice({
       console.log('setdark')
       state.theme = 'dark'
     },
+
+    setScrollable: (state: AppState) => {
+      state.scrollable = !state.scrollable
+    }
   }
 })
 
 
-export const {setLightTheme, setDarkTheme} = AppSlice.actions
+export const {setLightTheme, setDarkTheme, setScrollable} = AppSlice.actions
 export default AppSlice.reducer
 
 export type { AppState}

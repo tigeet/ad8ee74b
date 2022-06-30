@@ -5,10 +5,11 @@ import { getTheme } from "../selectors/selectors";
 import { setDarkTheme, setLightTheme } from "../slices/appSlice";
 
 const StyledThemeButton = styled.div`
+  grid-area: themeButton;
   color: ${(props: { theme: Theme }) => props.theme.colorMain};
   /* background-color: ${(props: { theme: Theme }) =>
     props.theme.colorAccent}; */
-  position: absolute;
+  /* position: absolute; */
   /* left: 100px; */
   /* top: 100px; */
   aspect-ratio: 1/1;

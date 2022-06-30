@@ -5,17 +5,17 @@ const Icon = styled.img`
   aspect-ratio: 1/1;
   object-fit: cover;
   width: 100%;
+  /* min-width: 100vw; */
   transition: 
-    background-color 0.3s, 
     transform 0.125s;
 
   &:hover {
     transform: scale(1.2);
-    z-index: 100;
   }
 
 
   @media (min-width: 576px) {
+    min-width: 0;
     width: 256px;
   }
 
