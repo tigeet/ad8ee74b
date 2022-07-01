@@ -1,16 +1,9 @@
 import { createGlobalStyle } from "styled-components"
-
-interface Theme {
-  colorMain: string,
-  colorAccent: string,
-  colorSelected: string,
-  colorShadow: string,
-  // colorBorder: string,
-  // colorBorderSelected: string,
-}
+import { DefaultTheme } from 'styled-components';
 
 
-const light: Theme = {
+
+const light: DefaultTheme = {
   colorMain: 'white',
   colorAccent: '#363537',
   colorShadow: '#aeb1b0',
@@ -18,7 +11,7 @@ const light: Theme = {
 
 }
 
-const dark: Theme = {
+const dark: DefaultTheme = {
   colorMain: "#272727",
   colorAccent: 'white',
   colorShadow: '#6b6670',
@@ -151,8 +144,7 @@ const Styles = createGlobalStyle`
 
 
   html {
-    background-color: ${(props: {theme: Theme}) => props.theme.colorMain};
-    /* color: ${(props: {theme: Theme}) => props.theme.colorAccent}; */
+    background-color: ${props => props.theme.colorMain};
     transition: color 0.3s, background-color 0.3s, box-shadow 0.3s;
   }
 
@@ -174,5 +166,4 @@ const Styles = createGlobalStyle`
 `;
 
 export { light, dark, Styles, Reset }
-export type {Theme}
 

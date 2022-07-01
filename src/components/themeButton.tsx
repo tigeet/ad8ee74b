@@ -1,19 +1,22 @@
 import { useDispatch, useSelector } from "react-redux";
 import styled, { useTheme } from "styled-components";
-import { Theme } from "../global";
 import { getTheme } from "../selectors/selectors";
 import { setDarkTheme, setLightTheme } from "../slices/appSlice";
 
-const StyledThemeButton = styled.div`
+interface ContainerProps {
+  size: number;
+}
+
+const StyledThemeButton = styled.div<ContainerProps>`
   grid-area: themeButton;
-  color: ${(props: { theme: Theme }) => props.theme.colorMain};
-  /* background-color: ${(props: { theme: Theme }) =>
-    props.theme.colorAccent}; */
+  /* color: ${(props) => props.theme.colorAccent}; */
+  /* background-color: ${(props) => props.theme.colorAccent}; */
   /* position: absolute; */
   /* left: 100px; */
   /* top: 100px; */
   aspect-ratio: 1/1;
-  width: 24px;
+  width: ${(props) => props.size}px;
+  height: ${(props) => props.size}px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,24 +24,33 @@ const StyledThemeButton = styled.div`
   /* width: 32px; */
   /* height: 32px; */
   font-size: 18px;
-  border-radius: 10000px;
+  border-radius: 4px;
+  &:hover {
+    background-color: ${(props) => props.theme.colorSelected};
+  }
 `;
 
+interface IconProps {
+  size: number;
+}
 const StyledThemeIcon = styled.svg.attrs(
   (props: { isDark: boolean; rot?: string }) => ({
     isDark: props.isDark,
     rot: props.isDark ? "180deg" : "0",
   })
-)`
+)<IconProps>`
   fill: ${(props) => props.theme.colorAccent};
   transition: transform 0.5s;
+  aspect-ratio: 1/1;
+  width: ${(props) => props.size}px;
+  height: ${(props) => props.size}px;
   transform: rotate(${(props) => props.rot!});
   /* transform: ; */
   /* &:hover {
     transform: rotate(180deg);
   } */
 `;
-const ThemeButton = () => {
+const ThemeButton = (props: { innerSize: number; outerSize: number }) => {
   const theme = useSelector(getTheme);
   const dispatch = useDispatch();
 
@@ -50,8 +62,9 @@ const ThemeButton = () => {
   };
 
   return (
-    <StyledThemeButton onClick={onClick}>
+    <StyledThemeButton size={props.outerSize} onClick={onClick}>
       <StyledThemeIcon
+        size={props.innerSize}
         isDark={theme === "dark"}
         // class="MuiSvgIcon-root theme-switch-icon theme-switch-rotated-out"
         focusable="false"

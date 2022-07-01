@@ -11,10 +11,9 @@ interface LoadingOverlayProps {
   visible: boolean;
 }
 
-const LoadingOverlay = styled.div`
-  /* visibility: ${(props: LoadingOverlayProps) =>
-    props.visible ? "visible" : "hidden"};
-  opacity: ${(props: LoadingOverlayProps) => (props.visible ? "1" : "0")};
+const LoadingOverlay = styled.div<LoadingOverlayProps>`
+  /* visibility: ${(props) => (props.visible ? "visible" : "hidden")};
+  opacity: ${(props) => (props.visible ? "1" : "0")};
   transition: opacity 0.05s; */
   width: 100vw;
   height: 100vh;

@@ -19,7 +19,13 @@ const App = () => {
         <Reset />
         <Styles />
 
-        <Nav />
+        <Nav
+          height={50}
+          linkWidth={120}
+          linkHeight={32}
+          iconInnerSize={24}
+          iconOuterSize={32}
+        />
         <Gallery />
       </ThemeProvider>
     </>

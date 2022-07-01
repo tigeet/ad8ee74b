@@ -3,6 +3,7 @@ import styled, { keyframes } from "styled-components";
 
 const Icon = styled.img`
   aspect-ratio: 1/1;
+  
   object-fit: cover;
   width: 100%;
   /* min-width: 100vw; */

@@ -4,6 +4,7 @@ const Container = styled.div`
   --gap: 8px;
   /* position: relative; */
   width: 100%;
+  aspect-ratio: 1/1;
   display: flex;
   flex-direction: column;
   gap: var(--gap);
@@ -19,6 +20,11 @@ const Container = styled.div`
   &:hover {
     /* color: #ffbc40; */
     cursor: pointer;
+  }
+
+  @media (min-width: 576px) {
+    min-width: 0;
+    width: 256px;
   }
 
 `;

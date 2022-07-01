@@ -5,7 +5,7 @@ import { Container } from "../styles/iconContainer";
 interface PostProps {
   url: string;
   text: string;
-  id: string,
+  id: string;
 }
 
 const Post = ({ url, text }: PostProps) => {
@@ -15,7 +15,7 @@ const Post = ({ url, text }: PostProps) => {
       <Icon src={url} alt="?" />
     </IconWrapper>
 
-    // <p>{text}</p>
+    // <span>{text}</span>
     // </Container>
   );
 };

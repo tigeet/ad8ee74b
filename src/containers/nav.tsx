@@ -1,21 +1,24 @@
 import { useContext, useRef, useState } from "react";
 import { Menu, Plus } from "react-feather";
 import { useDispatch } from "react-redux";
-import styled, { ThemeContext, useTheme } from "styled-components";
+import styled from "styled-components";
+import { MenuButton } from "../components/menuButton";
 import { NavLink } from "../components/navLink";
 import { NavLinks } from "../components/navLinkContainer";
 import { ThemeButton } from "../components/themeButton";
-import { Theme } from "../global";
-import { getTheme } from "../selectors/selectors";
 import { setScrollable } from "../slices/appSlice";
 
-const NavContainer = styled.div`
+interface NavContainerProps {
+  height: number;
+}
+
+const NavContainer = styled.div<NavContainerProps>`
   display: flex;
   position: sticky;
   top: 0;
   left: 0;
   width: 100%;
-  height: var(--navbarHeight);
+  height: ${(props) => props.height}px;
   z-index: 100000000000;
   align-items: center;
 
@@ -26,7 +29,7 @@ const NavContainer = styled.div`
 
   justify-content: center;
   padding: 0 12px;
-  @media screen and (min-width: 576px) {
+  @media (min-width: 576px) {
     padding: none;
   }
 `;
@@ -45,13 +48,13 @@ const NavContent = styled.div`
   grid-template-columns: min-content 1fr min-content;
   grid-template-areas: "themeButton space dropdown";
 
-  @media screen and (min-width: 576px) {
+  @media (min-width: 576px) {
     width: 528px;
     grid-template-columns: min-content 1fr;
     grid-template-areas: "themeButton space links";
   }
 
-  @media screen and (min-width: 1200px) {
+  @media (min-width: 1200px) {
     width: 1072px;
   }
 
@@ -69,24 +72,38 @@ const DropdownContainer = styled.div`
 
   color: ${(props) => props.theme.colorAccent};
 
-  @media screen and (min-width: 576px) {
+  @media (min-width: 576px) {
     display: none;
   }
 `;
 
-const Nav = () => {
+interface NavProps {
+  height: number;
+  linkWidth: number;
+  linkHeight: number;
+  iconInnerSize: number;
+  iconOuterSize: number;
+}
+
+const Nav = ({
+  height,
+  linkWidth,
+  linkHeight,
+  iconInnerSize,
+  iconOuterSize,
+}: NavProps) => {
   const [active, setActive] = useState<boolean>(false);
   const dispatch = useDispatch();
 
   return (
-    <NavContainer>
+    <NavContainer height={height}>
       <NavContent>
-        <ThemeButton />
+        <ThemeButton outerSize={iconOuterSize} innerSize={iconInnerSize} />
 
         <NavLinks active={active}>
-          <NavLink text="Page 1" />
-          <NavLink text="Page 2" />
-          <NavLink text="Page 3" />
+          <NavLink text="Page 1" height={linkHeight} width={linkWidth} />
+          <NavLink text="Page 2" height={linkHeight} width={linkWidth} />
+          <NavLink text="Page 3" height={linkHeight} width={linkWidth} />
         </NavLinks>
 
         <DropdownContainer
@@ -95,7 +112,7 @@ const Nav = () => {
             setActive((prev) => !prev);
           }}
         >
-          <Menu />
+          <MenuButton outerSize={iconOuterSize} innerSize={iconInnerSize} />
         </DropdownContainer>
       </NavContent>
     </NavContainer>

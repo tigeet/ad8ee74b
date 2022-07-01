@@ -24,10 +24,10 @@ const Grid = styled.div`
   }
 `;
 
-const GridWrapper = styled.div`
+const GridWrapper = styled.div<GridProps>`
   width: 100%;
-  height: ${(props: GridProps) => props.scrollable ? 'unset' : '100%' };
-  overflow: ${(props: GridProps) => props.scrollable ? 'unset' : 'hidden' };
+  height: ${props => props.scrollable ? 'unset' : '100%' };
+  overflow: ${(props) => props.scrollable ? 'unset' : 'hidden' };
   transition: background-color 0.3s;
   /* height: 100%; */
   /* height: fit-content; */
