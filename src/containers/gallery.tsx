@@ -1,24 +1,58 @@
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import styled from "styled-components";
 import { Post } from "../components/post";
+import { getLoading, getPosts } from "../selectors/selectors";
+import { fetchPosts, PostObject } from "../slices/postSlice";
+import { Dispatch } from "../store";
 import { GridWrapper, Grid } from "../styles/grid";
 
-const urls: string[] = [
-  "https://i.pinimg.com/736x/87/2c/c1/872cc19ba08c79b5445c2f235904677f.jpg",
-  "https://i.pinimg.com/564x/ca/33/50/ca3350627d5080cbac0a5d95d5b15d93.jpg",
-  "https://i.pinimg.com/236x/f7/eb/b4/f7ebb40874e4798d0969a1f248199363.jpg",
-  "https://i.pinimg.com/236x/04/fb/bc/04fbbc3951e31330d162ae1366898fa8.jpg",
-  "https://i.pinimg.com/236x/2e/51/4d/2e514d3e360e34a12de2741fff1be68d.jpg",
-  "https://i.pinimg.com/564x/99/85/9f/99859fd2363a955730077495e959b85e.jpg",
-];
+interface LoadingOverlayProps {
+  visible: boolean;
+}
+
+const LoadingOverlay = styled.div`
+  /* visibility: ${(props: LoadingOverlayProps) =>
+    props.visible ? "visible" : "hidden"};
+  opacity: ${(props: LoadingOverlayProps) => (props.visible ? "1" : "0")};
+  transition: opacity 0.05s; */
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: calc(100vw / 7);
+  letter-spacing: 1rem;
+  background-color: ${(props) => props.theme.colorMain};
+  color: ${(props) => props.theme.colorAccent};
+`;
 
 const Gallery = () => {
+  const dispatch = useDispatch<Dispatch>();
+  const posts: PostObject[] = useSelector(getPosts);
+  const loading: boolean = useSelector(getLoading);
+
+  useEffect(() => {
+    dispatch(fetchPosts());
+  }, []);
+
   return (
-    <GridWrapper scrollable={false}>
-      <Grid>
-        {urls.map((url, i) => (
-          <Post url={url} key={url + i} text={"" + i} />
-        ))}
-      </Grid>
-    </GridWrapper>
+    <>
+      {loading ? (
+        <LoadingOverlay visible={loading}>LOADING</LoadingOverlay>
+      ) : (
+        <GridWrapper scrollable={false}>
+          <Grid>
+            {posts.map((obj: PostObject, i) => (
+              <Post url={obj.url} key={obj.id} text={obj.title} id={obj.id} />
+            ))}
+          </Grid>
+        </GridWrapper>
+      )}
+    </>
   );
 };
 

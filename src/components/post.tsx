@@ -5,6 +5,7 @@ import { Container } from "../styles/iconContainer";
 interface PostProps {
   url: string;
   text: string;
+  id: string,
 }
 
 const Post = ({ url, text }: PostProps) => {

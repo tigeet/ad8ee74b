@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { ThemeProvider } from "styled-components";
+import { Post } from "./components/post";
 import { Gallery } from "./containers/gallery";
 import { Nav } from "./containers/nav";
-import { dark, light, Styles } from "./global";
+import { dark, light, Reset, Styles } from "./global";
 import { getScrollable, getTheme } from "./selectors/selectors";
 
 const App = () => {
@@ -15,9 +16,10 @@ const App = () => {
   return (
     <>
       <ThemeProvider theme={theme === "light" ? light : dark}>
+        <Reset />
         <Styles />
-        <Nav />
 
+        <Nav />
         <Gallery />
       </ThemeProvider>
     </>
