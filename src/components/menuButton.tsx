@@ -6,7 +6,8 @@ interface ContainerProps {
 }
 
 const Container = styled.div<ContainerProps>`
-  color: ${(props) => props.theme.colorAccent};
+  /* color: ${(props) => props.theme.colorAccent}; */
+
   /* background-color: ${(props) => props.theme.colorAccent}; */
   /* position: absolute; */
   /* left: 100px; */

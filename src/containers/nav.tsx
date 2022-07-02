@@ -101,9 +101,9 @@ const Nav = ({
         <ThemeButton outerSize={iconOuterSize} innerSize={iconInnerSize} />
 
         <NavLinks active={active}>
-          <NavLink text="Page 1" height={linkHeight} width={linkWidth} />
-          <NavLink text="Page 2" height={linkHeight} width={linkWidth} />
-          <NavLink text="Page 3" height={linkHeight} width={linkWidth} />
+          <NavLink text="Page 1" height={linkHeight} />
+          <NavLink text="Page 2" height={linkHeight} />
+          <NavLink text="Page 3" height={linkHeight} />
         </NavLinks>
 
         <DropdownContainer
