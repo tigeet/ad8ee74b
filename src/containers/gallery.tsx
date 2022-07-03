@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { Post } from "../components/post";
+import { useAppDispatch, useAppSelector } from "../hooks";
 import { getLoading, getPosts } from "../selectors/selectors";
 import { fetchPosts, PostObject } from "../slices/postSlice";
-import { Dispatch } from "../store";
 import { GridWrapper, Grid } from "../styles/grid";
 
 interface LoadingOverlayProps {
@@ -30,9 +29,9 @@ const LoadingOverlay = styled.div<LoadingOverlayProps>`
 `;
 
 const Gallery = () => {
-  const dispatch = useDispatch<Dispatch>();
-  const posts: PostObject[] = useSelector(getPosts);
-  const loading: boolean = useSelector(getLoading);
+  const dispatch = useAppDispatch();
+  const posts: PostObject[] = useAppSelector(getPosts);
+  const loading: boolean = useAppSelector(getLoading);
 
   useEffect(() => {
     dispatch(fetchPosts());

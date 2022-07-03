@@ -1,5 +1,5 @@
-import { useDispatch, useSelector } from "react-redux";
 import styled, { useTheme } from "styled-components";
+import { useAppSelector, useAppDispatch } from "../hooks";
 import { getTheme } from "../selectors/selectors";
 import { setDarkTheme, setLightTheme } from "../slices/appSlice";
 
@@ -51,8 +51,8 @@ const StyledThemeIcon = styled.svg.attrs(
   } */
 `;
 const ThemeButton = (props: { innerSize: number; outerSize: number }) => {
-  const theme = useSelector(getTheme);
-  const dispatch = useDispatch();
+  const theme = useAppSelector(getTheme);
+  const dispatch = useAppDispatch();
 
   const setLight = () => dispatch(setLightTheme());
   const setDark = () => dispatch(setDarkTheme());

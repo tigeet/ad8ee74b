@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import { ThemeProvider } from "styled-components";
-import { Post } from "./components/post";
 import { Gallery } from "./containers/gallery";
 import { Nav } from "./containers/nav";
 import { dark, light, Reset, Styles } from "./global";
+import { useAppSelector } from "./hooks";
 import { getScrollable, getTheme } from "./selectors/selectors";
 
 const App = () => {
-  const theme = useSelector(getTheme);
-  const scrollable = useSelector(getScrollable);
+  const theme = useAppSelector(getTheme);
+  const scrollable = useAppSelector(getScrollable);
 
   const body = document.querySelector("body")!;
   body.setAttribute("scrollable", "" + scrollable);

@@ -1,11 +1,11 @@
 import { useContext, useRef, useState } from "react";
 import { Menu, Plus } from "react-feather";
-import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { MenuButton } from "../components/menuButton";
 import { NavLink } from "../components/navLink";
 import { NavLinks } from "../components/navLinkContainer";
 import { ThemeButton } from "../components/themeButton";
+import { useAppDispatch } from "../hooks";
 import { setScrollable } from "../slices/appSlice";
 
 interface NavContainerProps {
@@ -93,7 +93,7 @@ const Nav = ({
   iconOuterSize,
 }: NavProps) => {
   const [active, setActive] = useState<boolean>(false);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   return (
     <NavContainer height={height}>
