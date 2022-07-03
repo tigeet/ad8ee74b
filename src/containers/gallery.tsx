@@ -24,8 +24,8 @@ const LoadingOverlay = styled.div<LoadingOverlayProps>`
   align-items: center;
   font-size: calc(100vw / 7);
   letter-spacing: 1rem;
-  background-color: ${(props) => props.theme.colorMain};
-  color: ${(props) => props.theme.colorAccent};
+  /* background-color: ${(props) => props.theme.colorMain}; */
+  /* color: ${(props) => props.theme.colorAccent}; */
 `;
 
 const Gallery = () => {

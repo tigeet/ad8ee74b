@@ -12,8 +12,8 @@ const Container = styled.div`
   padding: var(--gap);
   border-radius: 6px;
   /* background-color: #ffbc40; */
-  background-color: ${props => props.theme.colorMain};
-  box-shadow: 0 0 3px ${props => props.theme.colorShadow};
+  /* background-color: ${props => props.theme.colorMain}; */
+  /* box-shadow: 0 0 3px ${props => props.theme.colorShadow}; */
   transition: 
       color 0.125s;
 

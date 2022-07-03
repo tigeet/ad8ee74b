@@ -1,14 +1,24 @@
 import styled from "styled-components";
 
+/*
+  add padding props mb :?
+*/
+
+
+
 interface LinkProps {
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
   // label: string;
 }
 
-const Link = styled.div<LinkProps>`
-  width: ${(props) => props.width}px;
-  height: ${(props) => props.height}px;
+const Link = styled.div<LinkProps>.attrs((props: LinkProps) => ({
+  width: (props.width === undefined) ? 'fit-content' : props.width + 'px',
+  height: (props.height === undefined) ? 'fit-content' : props.height + 'px',
+
+}))`
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
   /* height: 32px; */
   border-radius: 4px;
   padding: 0 24px;
@@ -28,7 +38,7 @@ const Link = styled.div<LinkProps>`
   }
 `;
 
-const NavLink = (props: { text: string; width: number; height: number }) => {
+const NavLink = (props: { text: string; width?: number; height?: number }) => {
   return <Link {...props}>{props.text}</Link>;
 };
 

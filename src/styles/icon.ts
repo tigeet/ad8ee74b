@@ -3,10 +3,8 @@ import styled, { keyframes } from "styled-components";
 
 const Icon = styled.img`
   aspect-ratio: 1/1;
-  
-  object-fit: cover;
+  image-rendering: -webkit-optimize-contrast;
   width: 100%;
-  /* min-width: 100vw; */
   transition: 
     transform 0.125s;
 
@@ -14,13 +12,10 @@ const Icon = styled.img`
     transform: scale(1.2);
   }
 
-
   @media (min-width: 576px) {
     min-width: 0;
     width: 256px;
   }
-
-  
 `;
 
 const IconWrapper = styled.div`
