@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { MenuButton } from "../components/menuButton";
 import { NavLink } from "../components/navLink";
 import { NavLinks } from "../components/navLinkContainer";
+import { SlideButton } from "../components/slideButton";
 import { ThemeButton } from "../components/themeButton";
 import { useAppDispatch } from "../hooks";
 import { setScrollable } from "../slices/appSlice";
@@ -79,7 +80,7 @@ const DropdownContainer = styled.div`
 
 interface NavProps {
   height: number;
-  linkWidth: number;
+  linkWidth?: number;
   linkHeight: number;
   iconInnerSize: number;
   iconOuterSize: number;
@@ -101,9 +102,18 @@ const Nav = ({
         <ThemeButton outerSize={iconOuterSize} innerSize={iconInnerSize} />
 
         <NavLinks active={active}>
-          <NavLink text="Page 1" height={linkHeight} />
-          <NavLink text="Page 2" height={linkHeight} />
-          <NavLink text="Page 3" height={linkHeight} />
+          <NavLink text="Page 1" height={linkHeight} fontSize={24} />
+          <NavLink text="Page 2" height={linkHeight} fontSize={24} />
+          <NavLink text="Page 3" height={linkHeight} fontSize={24} />
+
+          <SlideButton
+            height={32}
+            text="Forward"
+            borderColor="white"
+            contentColor="white"
+            backgroundColor="#185abc"
+          />
+          
         </NavLinks>
 
         <DropdownContainer

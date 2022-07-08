@@ -9,6 +9,7 @@ import styled from "styled-components";
 interface LinkProps {
   width?: number;
   height?: number;
+  fontSize: number;
   // label: string;
 }
 
@@ -25,21 +26,31 @@ const Link = styled.div<LinkProps>.attrs((props: LinkProps) => ({
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: ${props => props.fontSize};
   &:hover {
     background-color: ${(props) => props.theme.colorSelected};
   }
 
   @media (max-width: 576px) {
     width: 100%;
-    font-size: 24px;
     /* position: relative; */
     /* top: 48px; */
     /* flex-direction: column; */
   }
 `;
 
-const NavLink = (props: { text: string; width?: number; height?: number }) => {
-  return <Link {...props}>{props.text}</Link>;
+
+interface NavLinkProps {
+  width?: number,
+  height?:number,
+  text: string,
+  fontSize: number,
+}
+
+
+
+const NavLink = ({width, height, text, fontSize} : NavLinkProps) => {
+  return <Link width={width} height={height} fontSize={fontSize}>{text}</Link>;
 };
 
 export { NavLink };

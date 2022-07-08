@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ThemeProvider } from "styled-components";
+import { SlideButton } from "./components/slideButton";
 import { Gallery } from "./containers/gallery";
 import { Nav } from "./containers/nav";
 import { dark, light, Reset, Styles } from "./global";
@@ -17,6 +18,8 @@ const App = () => {
       <ThemeProvider theme={theme === "light" ? light : dark}>
         <Reset />
         <Styles />
+
+    
 
         <Nav
           height={50}

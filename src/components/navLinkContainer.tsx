@@ -8,6 +8,7 @@ interface NavLinkProps {
 const Container = styled.div<NavLinkProps>`
   grid-area: links;
   display: flex;
+  gap: 4px;
   align-items: center;
   height: 100%;
   z-index: 100;
