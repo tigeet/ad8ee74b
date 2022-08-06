@@ -21,14 +21,36 @@ const Link = styled.div<LinkProps>.attrs((props: LinkProps) => ({
   width: ${(props) => props.width};
   height: ${(props) => props.height};
   /* height: 32px; */
+  position: relative;
   border-radius: 4px;
   padding: 0 24px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: ${props => props.fontSize};
+
+
+
+
+
+
   &:hover {
-    background-color: ${(props) => props.theme.colorSelected};
+    &::after {
+    width: 100%;
+    margin: 0 auto;
+    position: absolute;
+    box-sizing: border-box;
+
+    bottom: 0;
+    content: '';
+    background-color: ${props => props.theme.colorAccent};
+    /* border-radius: 2px; */
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    /* transition: width 0.2s  ; */
+    height: 3px;
+  }
+    /* background-color: ${(props) => props.theme.colorSelected}; */
   }
 
   @media (max-width: 576px) {
@@ -54,3 +76,4 @@ const NavLink = ({width, height, text, fontSize} : NavLinkProps) => {
 };
 
 export { NavLink };
+

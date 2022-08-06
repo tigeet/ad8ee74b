@@ -35,21 +35,22 @@ const Gallery = () => {
 
   useEffect(() => {
     dispatch(fetchPosts());
-  }, []);
+  }, [dispatch]);
 
+  // }, [posts]);
   return (
     <>
-      {loading ? (
+      {/* {loading ? (
         <LoadingOverlay visible={loading}>LOADING</LoadingOverlay>
-      ) : (
-        <GridWrapper scrollable={false}>
-          <Grid>
-            {posts.map((obj: PostObject, i) => (
-              <Post url={obj.url} key={obj.id} text={obj.title} id={obj.id} />
-            ))}
-          </Grid>
-        </GridWrapper>
-      )}
+      ) : ( */}
+      <GridWrapper scrollable={false}>
+        <Grid>
+          {posts.map((obj: PostObject, i) => (
+            <Post url={obj.url} key={obj.id} text={obj.title} id={obj.id} />
+          ))}
+        </Grid>
+      </GridWrapper>
+      {/* )} */}
     </>
   );
 };
