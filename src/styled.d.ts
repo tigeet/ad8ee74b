@@ -6,6 +6,7 @@ declare module 'styled-components' {
     colorAccent: string,
     colorSelected: string,
     colorShadow: string,
+    colorText: string,
     // colorBorder: string,
     // colorBorderSelected: string,
   }

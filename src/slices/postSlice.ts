@@ -29,7 +29,7 @@ const initialState: PostState = {
 const fetchData= async (): Promise<PostObject[]> => { 
   // убрать ссылку в глобальные переменные
   const response = await fetch(
-    "https://raw.githubusercontent.com/tigeet/9p2z3384/main/db.json"
+    "https://raw.githubusercontent.com/tigeet/ad8ee74b/dev/public/images.json?token=GHSAT0AAAAAABVSHVQSRPJEEDA46JQGW2WEYXO3BQA"
   );
   const json = await response.json();
   console.log(json);

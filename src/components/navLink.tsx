@@ -1,11 +1,6 @@
 import styled from "styled-components";
 
-/*
-  add padding props mb :?
-*/
-
-
-
+// add padding props mb :?
 interface LinkProps {
   width?: number;
   height?: number;
@@ -29,11 +24,6 @@ const Link = styled.div<LinkProps>.attrs((props: LinkProps) => ({
   justify-content: center;
   font-size: ${props => props.fontSize};
 
-
-
-
-
-
   &:hover {
     &::after {
     width: 100%;
@@ -54,7 +44,12 @@ const Link = styled.div<LinkProps>.attrs((props: LinkProps) => ({
   }
 
   @media (max-width: 576px) {
-    width: 100%;
+    width: 100%;  
+    &:hover {
+      &::after{
+        display: none;
+      }
+    }
     /* position: relative; */
     /* top: 48px; */
     /* flex-direction: column; */

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { JSXElements } from "../types";
+import { NavLink } from "./navLink";
 
 interface NavLinkProps {
   active: boolean;
@@ -13,7 +14,7 @@ const Container = styled.div<NavLinkProps>`
   height: 100%;
   z-index: 100;
 
-  /* background-color: ${(props) => props.theme.colorMain}; */
+  background-color: ${(props) => props.theme.colorMain};
   transition: background-color 0.3s, left 0.2s, visibility 0.3s;
 
   @media (max-width: 576px) {

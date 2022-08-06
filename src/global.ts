@@ -5,15 +5,17 @@ import { DefaultTheme } from 'styled-components';
 
 const light: DefaultTheme = {
   colorMain: 'white',
-  colorAccent: '#363537',
+  colorAccent: "#007acc",
   colorShadow: '#aeb1b0',
+  colorText: '#363537',
   colorSelected: '#2667FF33',
 
 }
 
 const dark: DefaultTheme = {
   colorMain: "#272727",
-  colorAccent: 'white',
+  colorAccent: "#007acc",
+  colorText: 'white',
   colorShadow: '#6b6670',
   colorSelected: '#f9f8f833',
 }

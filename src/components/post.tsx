@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Icon = styled.img`
   aspect-ratio: 1/1;
-  image-rendering: -webkit-optimize-contrast;
+  /* image-rendering: -webkit-optimize-contrast; */
   width: 100%;
   transition: transform 0.125s;
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ThemeProvider } from "styled-components";
-import { Gallery } from "./containers/gallery";
-import { Nav } from "./containers/nav";
+import { Gallery } from "./components/gallery";
+import { Nav } from "./components/nav";
 import { dark, light, Reset, Styles } from "./global";
 import { useAppSelector } from "./hooks";
 import { getScrollable, getTheme } from "./selectors/selectors";

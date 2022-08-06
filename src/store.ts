@@ -5,14 +5,14 @@ import PostReducer from './slices/postSlice'
 
 
 
-const ll: Middleware<{}, RootState> = state => next => action => {
-  console.group(action.type);
-  console.info('dispatching', action);
-  let result = next(action);
-  console.log('next state', state.getState());
-  console.groupEnd();
-  return result;
-};
+// const ll: Middleware<{}, RootState> = state => next => action => {
+//   console.group(action.type);
+//   console.info('dispatching', action);
+//   let result = next(action);
+//   console.log('next state', state.getState());
+//   console.groupEnd();
+//   return result;
+// };
 
 
 

@@ -39,7 +39,7 @@ const StyledThemeIcon = styled.svg.attrs(
     rot: props.isDark ? "180deg" : "0",
   })
 )<IconProps>`
-  fill: ${(props) => props.theme.colorAccent};
+  fill: ${(props) => props.theme.colorText};
   transition: transform 0.5s;
   aspect-ratio: 1/1;
   width: ${(props) => props.size}px;

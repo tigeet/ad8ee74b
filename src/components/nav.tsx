@@ -24,7 +24,8 @@ const NavContainer = styled.div<NavContainerProps>`
 
   transition: 0.3s all;
   background-color: ${(props) => props.theme.colorMain};
-  color: ${(props) => props.theme.colorAccent};
+
+  color: ${(props) => props.theme.colorText};
   box-shadow: 0 1px 3px ${(props) => props.theme.colorShadow};
 
   justify-content: center;
@@ -69,8 +70,7 @@ const DropdownContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
-  color: ${(props) => props.theme.colorAccent};
+  color: ${(props) => props.theme.colorText};
 
   @media (min-width: 576px) {
     display: none;
